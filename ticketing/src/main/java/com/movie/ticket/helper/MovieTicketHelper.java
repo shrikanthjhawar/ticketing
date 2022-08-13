@@ -10,5 +10,11 @@ public class MovieTicketHelper {
 		screenName = theaterName.substring(0, 3)+area.substring(0, 3);
 		return screenName;
 	}
+	
+	public String generateMovieID(String movieName) {
+		String movieId="";
+		movieId =movieName.substring(0, 3);
+		return movieId;
+	}
 
 }

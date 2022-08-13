@@ -26,12 +26,11 @@ public class TheaterRest {
 	public String addTheater(@RequestBody TheaterHall theater) {
 		System.out.println("Saving theater info...");
 		theaterService.saveTheater(theater);
-		int j=0;
+		
 		  for(int i=0;i<theater.getNumberOfScreens();i++) {
-			  j=j+i;
 		  screen.setTheaterId(theater.getId()); screen.setCapacity(100);
 		  screen.setScreenId(helper.generateScreenName(theater.getArea(),
-		  theater.getName())+"-"+j); screen.setScreenName("Screen-"+j);
+		  theater.getName())+"-"+i); screen.setScreenName("Screen-"+i);
 		  screenService.saveScreen(screen); }
 		 
 		
