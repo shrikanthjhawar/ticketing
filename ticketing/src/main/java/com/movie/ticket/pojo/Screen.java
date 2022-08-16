@@ -21,8 +21,17 @@ public class Screen {
 	private String screenName;
 	
 	@Column(name="theater_id")
-	private int TheaterId;
+	private String TheaterId;
 	
+	@Column(name="timing")
+	private String timing;
+		
+	public String getTiming() {
+		return timing;
+	}
+	public void setTiming(String timing) {
+		this.timing = timing;
+	}
 	@Column(name="capacity")
 	private int capacity;
 	
@@ -33,10 +42,10 @@ public class Screen {
 	public void setScreenId(String screenId) {
 		this.screenId = screenId;
 	}
-	public int getTheaterId() {
+	public String getTheaterId() {
 		return TheaterId;
 	}
-	public void setTheaterId(int theaterId) {
+	public void setTheaterId(String theaterId) {
 		TheaterId = theaterId;
 	}
 	public int getCapacity() {

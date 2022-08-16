@@ -25,12 +25,14 @@ public class TheaterRest {
 	@PostMapping("/add")
 	public String addTheater(@RequestBody TheaterHall theater) {
 		System.out.println("Saving theater info...");
+		theater.setId(helper.generateScreenName(theater.getTheaterName(), theater.getArea()));
 		theaterService.saveTheater(theater);
 		
 		  for(int i=0;i<theater.getNumberOfScreens();i++) {
 		  screen.setTheaterId(theater.getId()); screen.setCapacity(100);
 		  screen.setScreenId(helper.generateScreenName(theater.getArea(),
-		  theater.getName())+"-"+i); screen.setScreenName("Screen-"+i);
+		  theater.getTheaterName())+"-"+i); screen.setScreenName("Screen-"+i);
+		  screen.setTiming(helper.generatescreenTiming());
 		  screenService.saveScreen(screen); }
 		 
 		

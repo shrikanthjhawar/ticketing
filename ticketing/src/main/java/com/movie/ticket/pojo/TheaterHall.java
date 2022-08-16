@@ -8,21 +8,24 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 
-@Entity
+//select Movie_name,Movie_cast,GENERe,LANGUAGE,name,Timing,name from movie_Details,movie_info, theater_hall where movie_Details.movie_id=movie_info.movie_id and theater_hall.id = movie_info.theater_id;
+
+@Entity(name="theater_hall")
 @Table(name = "Theater_Hall")
 public class TheaterHall {
 	
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+
+	public String getTheaterName() {
+		return theaterName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setTheaterName(String theaterName) {
+		this.theaterName = theaterName;
 	}
 	public char getType() {
 		return type;
@@ -43,10 +46,9 @@ public class TheaterHall {
 		this.totalCapacity = totalCapacity;
 	}
 	@Id  
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
-	@Column(name = "NAME")
-	private String name;
+	private String id;
+	@Column(name = "THEATER_NAME")
+	private String theaterName;
 	@Column(name="ADDRESS")
 	private String address;
 	public String getAddress() {
@@ -88,6 +90,6 @@ public class TheaterHall {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return ""+name+","+type+","+numberOfScreens+","+","+totalCapacity;
+		return ""+theaterName+","+type+","+numberOfScreens+","+","+totalCapacity;
 	}
 }

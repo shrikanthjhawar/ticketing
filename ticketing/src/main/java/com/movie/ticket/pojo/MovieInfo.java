@@ -1,29 +1,31 @@
 package com.movie.ticket.pojo;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Service;
 
-@Entity
+@Entity(name="movie_info")
 @Table(name = "Movie_Info")
 @Service
 public class MovieInfo {
-	@Id
+	
+	@Id 
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+
 	@Column(name = "MOVIE_ID")
 	private String movieID;
-	@Column(name = "MOVIE_NAME")
-	private String movieName;
-
-	@Column(name = "SCREEN_INFO")
+	
+	@Column(name = "SCREEN_ID")
 	private String screenInfo;
 
 	@Column(name = "THEATER_ID")
-	private int theaterId;
+	private String theaterId;
 
 	@Column(name = "TIMING")
 	private String timing;
@@ -52,25 +54,12 @@ public class MovieInfo {
 		this.movieID = movieID;
 	}
 
-	public String getMovieName() {
-		return movieName;
-	}
 
-	public void setMovieName(String movieName) {
-		this.movieName = movieName;
-	}
-
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return movieName + " ," + theaterId;
-	}
-
-	public int getTheaterId() {
+	public String getTheaterId() {
 		return theaterId;
 	}
 
-	public void setTheaterId(int theaterId) {
+	public void setTheaterId(String theaterId) {
 		this.theaterId = theaterId;
 	}
 
